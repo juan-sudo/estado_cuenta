@@ -1,0 +1,82 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn-primary {
+        @apply inline-flex items-center justify-center rounded-lg bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50;
+    }
+
+    .btn-secondary {
+        @apply inline-flex items-center justify-center rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-gray-700 shadow-sm ring-1 ring-inset ring-gray-300 transition hover:bg-gray-50;
+    }
+
+    .input-field {
+        @apply block w-full rounded-lg border-0 py-2.5 px-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm;
+    }
+
+    .label-field {
+        @apply mb-1.5 block text-sm font-medium text-gray-700;
+    }
+
+    .card {
+        @apply rounded-xl bg-white p-6 shadow-sm ring-1 ring-gray-200;
+    }
+
+    .badge {
+        @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+    }
+
+    .consulta-hero { @apply rounded-2xl border border-primary-100 bg-gradient-to-br from-white via-white to-primary-50/70 p-5 shadow-sm sm:p-7; }
+    .consulta-hero__heading { @apply flex items-start gap-4; } .consulta-hero__icon { @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-600 text-white shadow-lg shadow-primary-600/20; } .consulta-hero__icon svg { @apply h-6 w-6; }
+    .consulta-hero h1 { @apply mt-1 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl; } .consulta-hero__heading p:last-child { @apply mt-1 text-sm leading-6 text-slate-500; }
+    .consulta-search { @apply mt-6 flex flex-col gap-3 sm:flex-row; } .consulta-search .input-with-icon { @apply flex-1; } .consulta-search .input-field { @apply rounded-xl py-3 pl-11 shadow-none ring-slate-200 transition focus:ring-primary-500; } .consulta-search__button { @apply gap-2 rounded-xl px-6 py-3; } .consulta-search__button svg { @apply h-4 w-4; } .consulta-hero__help { @apply mt-3 text-xs text-slate-400; }
+    .consulta-alert { @apply flex items-center gap-3 rounded-xl bg-amber-50 px-4 py-3.5 text-sm text-amber-800 ring-1 ring-inset ring-amber-200; } .consulta-alert svg { @apply h-5 w-5 shrink-0 text-amber-600; }
+    .contribuyente-card { @apply flex flex-col gap-5 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200 sm:flex-row sm:items-center sm:justify-between sm:p-6; } .contribuyente-card__identity { @apply flex items-center gap-4; } .contribuyente-card__avatar { @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary-100 text-lg font-bold text-primary-700; } .contribuyente-card h2 { @apply mt-1 text-lg font-bold text-slate-900; } .contribuyente-card p:not(.eyebrow) { @apply mt-1 text-sm text-slate-500; } .contribuyente-card__contact { @apply text-sm text-slate-500 sm:text-right; } .contribuyente-card__contact p + p { @apply mt-1; }
+    .summary-card { @apply flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200; } .summary-card__icon { @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl; } .summary-card__icon svg { @apply h-5 w-5; } .summary-card p { @apply text-xs font-semibold uppercase tracking-wide text-slate-400; } .summary-card strong { @apply mt-1 block text-2xl font-bold tracking-tight; } .summary-card--debt .summary-card__icon { @apply bg-red-50 text-red-600; } .summary-card--debt strong { @apply text-red-600; } .summary-card--paid .summary-card__icon { @apply bg-emerald-50 text-emerald-600; } .summary-card--paid strong { @apply text-emerald-600; } .summary-card--records .summary-card__icon { @apply bg-primary-50 text-primary-600; } .summary-card--records strong { @apply text-slate-800; }
+    .records-card { @apply overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-slate-200; } .records-card__heading { @apply flex flex-wrap items-start justify-between gap-3 border-b border-slate-100 px-5 py-5 sm:px-6; } .records-card__heading h2 { @apply text-base font-bold text-slate-900; } .records-card__heading p { @apply mt-1 text-sm text-slate-500; } .records-card__heading > span { @apply rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold text-primary-700; }
+    .records-card thead { @apply bg-slate-50; } .records-card th { @apply whitespace-nowrap px-5 py-3.5 text-left text-xs font-bold uppercase tracking-wide text-slate-500; } .records-card th:last-child, .records-card th:nth-last-child(2) { @apply text-right; } .records-card td { @apply whitespace-nowrap px-5 py-4 text-slate-600; } .records-card tbody tr { @apply transition hover:bg-primary-50/30; }
+    .print-actions { @apply flex flex-col gap-3 rounded-xl border border-slate-200 bg-white px-4 py-3 shadow-sm sm:flex-row sm:items-center sm:justify-between; } .print-actions p { @apply text-sm text-slate-500; } .print-button { @apply gap-2 !rounded-xl !py-2.5; } .print-button svg { @apply h-4 w-4; } .print-document { @apply space-y-6; }
+}
+
+@media print {
+    @page { size: A4; margin: 14mm; }
+    body { background: #fff !important; color: #0f172a !important; font-size: 10pt; }
+    nav, footer, .no-print, .consulta-hero, .consulta-alert { display: none !important; }
+    main { max-width: none !important; padding: 0 !important; }
+    .print-document { display: block !important; }
+    .contribuyente-card, .summary-card, .records-card { box-shadow: none !important; }
+    .contribuyente-card, .records-card { border: 1px solid #cbd5e1 !important; }
+    .contribuyente-card { margin-bottom: 14px; padding: 16px !important; }
+    .grid { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 10px !important; margin-bottom: 14px; }
+    .summary-card { border: 1px solid #cbd5e1 !important; border-radius: 8px !important; padding: 12px !important; }
+    .summary-card strong { font-size: 15pt !important; }
+    .records-card__heading { padding: 12px 14px !important; }
+    .records-card table { font-size: 8.5pt !important; }
+    .records-card th, .records-card td { padding: 8px 10px !important; }
+    .records-card th { background: #f1f5f9 !important; }
+}
+
+@layer components {
+    .login-page { @apply grid min-h-screen bg-slate-50 lg:grid-cols-2; }
+    .login-visual { background-image: linear-gradient(135deg, rgba(8, 38, 91, .9), rgba(21, 77, 165, .62)), url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIqEqjYpj7viEIzRksOVGZNu_ZnEpt999YpalY-XxifBUKhnW0NdqmH-tE&s=10'); @apply relative hidden bg-cover bg-center lg:block; }
+    .login-visual__content { @apply relative flex min-h-screen flex-col justify-between p-10 xl:p-16; }
+    .brand { @apply inline-flex items-center gap-3 text-base font-semibold tracking-tight; }
+    .brand--light { @apply text-white; } .brand--dark { @apply text-slate-900; }
+    .brand__mark { @apply inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white text-sm font-extrabold text-primary-700 shadow-lg; }
+    .brand--dark .brand__mark { @apply bg-primary-600 text-white; }
+    .login-visual__message { @apply max-w-xl pb-16 text-white; } .eyebrow { @apply text-xs font-bold uppercase tracking-[.16em]; }
+    .login-visual__message .eyebrow { @apply text-blue-100; } .login-visual__message h1 { @apply mt-4 text-4xl font-bold leading-tight tracking-tight xl:text-5xl; }
+    .login-visual__message p { @apply mt-5 max-w-lg text-base leading-7 text-blue-50/90 xl:text-lg; } .login-visual__footer { @apply text-xs text-blue-100/80; }
+    .login-panel { @apply flex items-center justify-center px-5 py-10 sm:px-8 lg:px-12; } .login-card { @apply w-full max-w-md; }
+    .login-card__heading { @apply mt-10 flex items-center gap-4 lg:mt-0; } .login-card__icon { @apply flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary-50 text-primary-600; }
+    .login-card__icon svg { @apply h-6 w-6; } .login-card__heading h2 { @apply mt-1 text-2xl font-bold tracking-tight text-slate-900; } .login-card__description { @apply mt-4 text-sm leading-6 text-slate-500; }
+    .login-alert { @apply mt-5 rounded-xl px-4 py-3 text-sm leading-5 ring-1 ring-inset; } .login-alert--success { @apply bg-emerald-50 text-emerald-700 ring-emerald-100; } .login-alert--error { @apply bg-red-50 text-red-700 ring-red-100; }
+    .input-with-icon { @apply relative; } .input-with-icon > svg { @apply pointer-events-none absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400; }
+    .input-with-icon .input-field { @apply rounded-xl py-3 pl-11 shadow-none ring-slate-200 transition focus:ring-primary-500; } .label-field { @apply font-semibold text-slate-700; }
+    .login-submit { @apply mt-2 w-full gap-2 rounded-xl py-3.5 shadow-lg shadow-primary-600/20; } .login-submit svg { @apply h-4 w-4 transition-transform; } .login-submit:hover svg { @apply translate-x-1; }
+    .login-security { @apply mt-8 flex items-center justify-center gap-2 text-center text-xs text-slate-400; } .login-security svg { @apply h-4 w-4; }
+    .auth-switch { @apply mt-6 text-center text-sm text-slate-500; } .auth-switch a { @apply font-semibold text-primary-600 transition hover:text-primary-700; }
+    .update-modal { @apply fixed inset-0 z-50 flex items-center justify-center p-4; } .update-modal.is-hidden { @apply hidden; } .update-modal__backdrop { @apply absolute inset-0 bg-slate-950/45 backdrop-blur-sm; } .update-modal__content { @apply relative w-full max-w-md rounded-2xl bg-white p-6 text-center shadow-2xl sm:p-8; } .update-modal__close { @apply absolute right-4 top-4 rounded-lg p-2 text-slate-400 transition hover:bg-slate-100 hover:text-slate-700; } .update-modal__close svg { @apply h-5 w-5; } .update-modal__icon { @apply mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-50 text-primary-600; } .update-modal__icon svg { @apply h-7 w-7; } .update-modal__content h2 { @apply mt-2 text-xl font-bold tracking-tight text-slate-900; } .update-modal__description { @apply mt-3 text-sm leading-6 text-slate-500; } .update-modal__dates { @apply mt-5 rounded-xl border border-primary-100 bg-primary-50 px-4 py-3 text-left; } .update-modal__dates span { @apply block text-xs font-semibold uppercase tracking-wide text-primary-600; } .update-modal__dates strong { @apply mt-1 block text-sm text-primary-900; } .update-modal__button { @apply mt-6 w-full rounded-xl py-3; }
+}
+
